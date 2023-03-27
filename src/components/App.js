@@ -2,6 +2,7 @@ import React, {Component, useState} from "react";
 import '../styles/App.css';
 
 class App extends Component {
+	
 	constructor(props)
 	{
 		super(props);
@@ -38,23 +39,31 @@ class App extends Component {
 			],
 		}
 	};
-    render() {
+	
+   
+	 render() {
     	return(
-    		<div id="main">
+		
+       	<div id="main">
     			{
-    				//Correct the percentage conditional for correct output
-    				this.state.list.map(function(item,index){
-				   		if(item.percent > 0)
+			
+    				// Correct the percentage conditional for correct output
+    				this.state.list.map(function(item,index)
+					{
+						//  const [bgpink, changeBackground] = useState("");
+				   		if(item.percent > 75)
 				   		{
 				   			return(
-				   				//Conditional statement in the className of below div to give callName="bg-pink"
-				   				//if the percent >= 90 else className = "" 
-				   				<div key={index} className={}>
+				   				// Conditional statement in the className of below div to give callName="bg-pink"
+				   				// if the percent >= 90 else className = "" 
+				   				<div key={index} className={item.percent>90 ? "bg-pink": ""}>
 					   				<div className="name">
-					   					 //Write code to display name
+					   					 {/* //Write code to display name */}
+										 {item.name}
 					   				</div>
 					   				<div className="percent">
-					   					 //Write code to display percentage upto 2 decimal places
+					   					 {/* // Write code to display percentage upto 2 decimal places  */}
+										 {item.percent.toFixed(2)}
 					   				</div>
 				   				</div>
 				   				);
@@ -68,4 +77,3 @@ class App extends Component {
 
 
 export default App;
-
